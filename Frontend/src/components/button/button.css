@@ -1,0 +1,72 @@
+.Btn{
+  background:none;
+  border: 2px solid #000;
+  font-family: "montserrat",sans-serif;
+  text-transform: uppercase;
+  border-radius: 0px;
+  padding: 12px 20px;
+  min-width: 150px;
+  cursor: pointer;
+  transition: color 0.4s linear;
+  position: relative;
+}
+.Btn:hover{
+  color:#fff;
+  border-color: #000;
+}
+.Btn::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: -1; 
+  transition: transform 0.5s;
+  transform-origin: 0 0;
+  transition-timing-function: cubic-bezier(0.5,1.6,0.4,0.7);
+}
+
+.Btn1::before{
+  transform: scaleX(0);
+}
+
+.Btn1:hover::before{
+  transform: scaleX(1);
+}
+.DBtn{
+  background:none;
+  border: 2px solid #db0404;
+  font-family: "montserrat",sans-serif;
+  text-transform: uppercase;
+  border-radius: 0px;
+  padding: 12px 20px;
+  min-width: 150px;
+  cursor: pointer;
+  transition: color 0.4s linear;
+  position: relative;
+}
+.DBtn:hover{
+  color:#fff;
+  border-color: #db0404;
+}
+.DBtn::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #db0404;
+  z-index: -1; 
+  transition: transform 0.5s;
+  transform-origin: 0 0;
+  transition-timing-function: cubic-bezier(0.5,1.6,0.4,0.7);
+}
+.Btn2::before{
+  transform: scaleX(0);
+}
+.Btn2:hover::before{
+  transform: scaleX(1);
+}
