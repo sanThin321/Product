@@ -1,0 +1,10 @@
+.button{
+    border: 1px solid rgb(225, 223, 223);
+    background-color: rgb(112, 214, 254);
+    border-radius: 4px;
+    color: white;
+    
+}
+.buttonpage{
+    width: 10%;
+}

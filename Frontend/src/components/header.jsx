@@ -25,9 +25,9 @@ const Header = ({ children }) => {
 
     return (
         <div className="layout">
-            <h6 className={`py-3 text-center Header ${isScrolled ? 'scrolled' : ''}`}>
+            <h5 className={`py-3 text-center Header ${isScrolled ? 'scrolled' : ''}`}>
                 RNR Production Information Platform
-            </h6>
+            </h5>
             <div className="content" ref={contentRef}>
                 {children}
             </div>
