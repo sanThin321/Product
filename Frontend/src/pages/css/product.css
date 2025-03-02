@@ -3,8 +3,53 @@
     background-color: rgb(112, 214, 254);
     border-radius: 4px;
     color: white;
-    
+    padding: 0.5% 3%;
+    &.danger{
+      background-color: red;
+    }
 }
 .buttonpage{
     width: 10%;
+}
+
+.save{
+  margin-right: 2px;
+  padding: 3% 4%;
+  min-width: 100px;
+  background-color: rgb(112, 214, 254);
+  border: none;
+  border-radius: 4px;
+  color: white;
+}
+.cancel{
+  padding: 3% 4%;
+  min-width: 100px;
+  background-color: red;
+  border: none;
+  border-radius: 4px;
+  color: white;
+}
+.swal-actions {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 10px; /* Add space between buttons */
+  flex-wrap: nowrap !important; /* Prevent wrapping */
+  width: 100%;
+}
+.delete{
+  margin-right: 2px;
+  padding: 1.5% 4%;
+  min-width: 100px;
+  background-color: rgb(112, 214, 254);
+  border: none;
+  border-radius: 4px;
+  color: white;
+}
+.cancl{
+  padding: 1.5% 4%;
+  min-width: 100px;
+  background-color: red;
+  border: none;
+  border-radius: 4px;
+  color: white;
 }
