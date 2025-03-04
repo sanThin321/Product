@@ -32,6 +32,22 @@ const LandingPage = () => {
         setLoading(false);
       });
   }, []);
+  if (loading) {
+    return (
+      <Header>
+        <div className="spinner-container">
+          <div className="loading-spinner"></div>
+        </div>
+      </Header>
+    );
+  }
+  if (error) {
+    return (
+      <Header>
+        <div className="error-message">{error}</div>
+      </Header>
+    );
+  }
 
   const handleAddClick = () => {
     navigate("/add-product");
