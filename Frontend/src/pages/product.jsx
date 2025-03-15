@@ -22,8 +22,12 @@ const LandingPage = () => {
     axios
       .get("http://localhost:3000/product/products") // Replace with your backend API URL
       .then((response) => {
-        setData(response.data); // Assuming the backend returns an array of products
-        setFilteredData(response.data); // Set the fetched data as filteredData initially
+        const transformedData = response.data.map(item => ({
+          ...item,
+          total_product: Number(item.total_product) // Convert total_product to a number
+        }));
+        setData(transformedData); 
+        setFilteredData(transformedData); 
         setLoading(false);
       })
       .catch((error) => {
@@ -32,6 +36,7 @@ const LandingPage = () => {
         setLoading(false);
       });
   }, []);
+
   if (loading) {
     return (
       <Header>
@@ -41,6 +46,7 @@ const LandingPage = () => {
       </Header>
     );
   }
+
   if (error) {
     return (
       <Header>
@@ -68,10 +74,7 @@ const LandingPage = () => {
   };
 
   const handleRowClick = (id) => {
-    // Store the product ID in localStorage
     localStorage.setItem("selectedProductId", id);
-
-    // Navigate to the edit product page
     navigate(`/editproduct/${id}`);
   };
 
@@ -92,8 +95,11 @@ const LandingPage = () => {
     const productName = selectedOption.value.toLowerCase();
     const groupedData = groupByProductName(data);
     
-    // Get total product count for the selected product
-    const totalForProduct = groupedData[productName].reduce((acc, item) => acc + item.total_product, 0);
+    // Ensure total_product is treated as a number before summing
+    const totalForProduct = groupedData[productName].reduce(
+      (acc, item) => acc + Number(item.total_product), 0
+    );
+
     setTotalSum(totalForProduct);
   };
 
@@ -111,16 +117,8 @@ const LandingPage = () => {
     });
 
     setFilteredData(filtered);
-    setCurrentPage(1); // Reset to the first page when search query changes
+    setCurrentPage(1);
   };
-
-  if (loading) {
-    return <div>Loading...</div>; // Display loading text while data is being fetched
-  }
-
-  if (error) {
-    return <div>{error}</div>; // Display error message if there's an error fetching data
-  }
 
   // Prepare product options for the select dropdown
   const productOptions = [
@@ -142,7 +140,7 @@ const LandingPage = () => {
             className="form-control no-focus text-dark w-25"
             aria-label="Search"
             value={searchQuery}
-            onChange={handleSearch} // Handle search input changes
+            onChange={handleSearch}
           />
           <button className="pe-5 ps-5 button" onClick={handleAddClick}>Add</button>
           
